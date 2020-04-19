@@ -27,15 +27,14 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js"></script>
-    <script src="dist/clipboard.min.js"></script>
-    <title>React App</title>
+    <title>Teleprompt Editor</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <nav class="navbar navbar-default navbar-fixed-top mb-0 shrink">
       <div class="container-fluid"></div>
       <div id="navbar" class="navbar-collapse collapse">
-        <a class="navbar-brand-menu" href="%PUBLIC_URL%/" title="Homepage">Teleprompter</a>
+        <a class="navbar-brand-menu" href="%PUBLIC_URL%/" title="Homepage">Teleprompt Editor</a>
         <ul class="nav navbar-nav navbar-right">
           <li><button href="#help" onclick="save()"><img src="save.png" alt="save" /></abutton></li>
           <li><button onclick="copy()"><img src="copy-icon.png" width="36" alt="save" /></button></li>
@@ -53,16 +52,19 @@
         <div>
           <div>
           Video location:<br/>
-          <input type="url" id="videourl" value="https://microsoft.sharepoint.com/teams/MSROutreachOnlineEngagement/Shared Documents/Webinars/Episodes/11. Project Coyote/Video/Chris_Lovett-Webinar_V3_CBR_2020-04-15.mp4?App=OneDriveWebVideo"
+          <input type="url" id="videourl" value="https://microsoft.sharepoint.com/teams/MSROutreachOnlineEngagement/Shared Documents/Webinars/Episodes/11. Project Coyote/Video/Chris_Lovett-Webinar_V3_CBR_2020-04-15.mp4"
                  style='width:50%'  onchange="load_video()"/>
           </div>
-          <video id="videoplayer" class="embed-responsive-item" controls poster="/coyote/assets/images/ShortIntro.png"
+          <video id="videoplayer" class="embed-responsive-item" controls
                 style="width:50%">
               <source id="videoplayersrc"
                 class="embed-responsive-item"
-                src=""
+                src="https://microsoft.sharepoint.com/teams/MSROutreachOnlineEngagement/Shared Documents/Webinars/Episodes/11. Project Coyote/Video/Chris_Lovett-Webinar_V3_CBR_2020-04-15.mp4"
                 type="video/mp4"/>
           </video>
+          <p>
+              There is an <a href="http://lovettsoftware.com/Teleprompter/Chris_Lovett-Webinar_V2_2020-04-18.srt">example SRT file</a> that you can download and try.
+          </p>
         </div>
 
         <div id="placeholder"></div>
@@ -83,7 +85,6 @@
     -->
 
   </body>
-  <script type="text/javascript" src="FileSaver.js"></script>
   <script type="text/javascript">
 
   function load_video() {
