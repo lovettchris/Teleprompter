@@ -5,6 +5,7 @@ import InputFile from './inputfile';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { saveAs } from 'file-saver';
+import $ from 'jquery';
 
 function getSeconds(s) {
   var p = s.split(':');
@@ -116,7 +117,7 @@ class CCTable extends React.Component
     {
       rows.push(this.state.entries[i].render());
     }
-    return <div>
+    return <div className="srt-wrapper">
       <div>
         SRT location:<br/>
         <InputFile id="SrtUrl" value="" className="fileprompt" accept=".srt, .txt"
@@ -135,9 +136,58 @@ class CCTable extends React.Component
   }
 }
 
+class CCVideo extends React.Component
+{
+
+  constructor(props) {
+    super(props);
+    this.state = {url: "https://microsoft.sharepoint.com/teams/MSROutreachOnlineEngagement/Shared Documents/Webinars/Episodes/11. Project Coyote/Video/Chris_Lovett-Webinar_V3_CBR_2020-04-15.mp4"};
+    this.handleVideoUrlChange = this.handleVideoUrlChange.bind(this)
+
+  }
+
+  handleVideoUrlChange(e) {
+    var videourl = e.target.value;
+    this.setState({url: videourl});
+    //var videoplayersrc  = $("#videoplayersrc")[0];
+    //videoplayersrc.setAttribute("src", videourl.value);
+    var video  = $("#videoplayer")[0];
+    video.pause();
+    try {
+      video.load();
+      video.play();
+    } catch {
+      // bad url...
+    }
+  }
+
+  render() {
+    return <div classname="half-width">
+    <div>
+      Video location:<br/>
+      <input type="url" id="videourl" value={this.state.url} className="half-width" onChange={this.handleVideoUrlChange}/>
+    </div>
+    <video id="videoplayer" className="embed-responsive-item half-width" controls >
+        <source id="videoplayersrc"
+          className="embed-responsive-item"
+          src={this.state.url}
+          type="video/mp4"/>
+    </video>
+    <p>
+        There is an <a href="http://lovettsoftware.com/Teleprompter/Chris_Lovett-Webinar_V2_2020-04-18.srt">example SRT file</a>
+        that you can download and try.
+    </p>
+  </div>;
+  }
+
+}
+
 ReactDOM.render(
-  <CCTable></CCTable>,
-  document.getElementById('ccTable')
+  <section>
+    <CCTable></CCTable>
+    <CCVideo></CCVideo>
+  </section>,
+  document.getElementById('react-root')
 );
 
 // If you want your app to work offline and load faster, you can change

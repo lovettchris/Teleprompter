@@ -43,34 +43,8 @@
     </nav>
 
     <main class="section-main">
-      <section>
-        <div style="float:right; width:45%; margin-right:50px">
-          <div id="ccTable">
-          </div>
-        </div>
-
-        <div>
-          <div>
-          Video location:<br/>
-          <input type="url" id="videourl" value="https://microsoft.sharepoint.com/teams/MSROutreachOnlineEngagement/Shared Documents/Webinars/Episodes/11. Project Coyote/Video/Chris_Lovett-Webinar_V3_CBR_2020-04-15.mp4"
-                 style='width:50%'  onchange="load_video()"/>
-          </div>
-          <video id="videoplayer" class="embed-responsive-item" controls
-                style="width:50%">
-              <source id="videoplayersrc"
-                class="embed-responsive-item"
-                src="https://microsoft.sharepoint.com/teams/MSROutreachOnlineEngagement/Shared Documents/Webinars/Episodes/11. Project Coyote/Video/Chris_Lovett-Webinar_V3_CBR_2020-04-15.mp4"
-                type="video/mp4"/>
-          </video>
-          <p>
-              There is an <a href="http://lovettsoftware.com/Teleprompter/Chris_Lovett-Webinar_V2_2020-04-18.srt">example SRT file</a> that you can download and try.
-          </p>
-        </div>
-
-        <div id="placeholder"></div>
-
-      </section>
-
+      <div id="react-root"></div>
+      <div id="placeholder"></div>
     </main>
 
     <!--
@@ -86,15 +60,6 @@
 
   </body>
   <script type="text/javascript">
-
-  function load_video() {
-      videourl  = $("#videourl")[0];
-      videoplayersrc  = $("#videoplayersrc")[0];
-      videoplayersrc.setAttribute("src", videourl.value);
-      video  = $("#videoplayer")[0];
-      video.load();
-      video.play();
-  }
 
   var previousDiv = null;
   var srt_map = null;

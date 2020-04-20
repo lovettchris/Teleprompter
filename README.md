@@ -2,8 +2,27 @@
 
 This is a little [React App](https://reactjs.org/) that help you edit closed captions for a video.
 
+Simply load the SRT file that you want to test, an SRT file looks like this:
 
+```
+1
+00:00:00,000 --> 00:00:03,405
+>> Hello everyone, and
+welcome to today's webinar.
 
+2
+00:00:03,405 --> 00:00:07,455
+Before we begin, we want to
+cover a few housekeeping items.
+...
+```
+
+then load the video from a web URL using the input box on the left, as the video plays the SRT
+prompt will scroll in sync with the video.
+
+If you find any errors, simply correct them as you go.  When you are finished, click the
+Save Button to download the updated SRT or click the copy button to copy the new SRT text
+to your clipboard.
 
 
 ## React App
