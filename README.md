@@ -24,6 +24,7 @@ If you find any errors, simply correct them as you go.  When you are finished, c
 Save Button to download the updated SRT or click the copy button to copy the new SRT text
 to your clipboard.
 
+![screenshot](./screenshot.png)
 
 ## React App
 
