@@ -2,8 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import InputFile from './inputfile';
+// eslint-disable-next-line
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+// eslint-disable-next-line
 import { saveAs } from 'file-saver';
 import $ from 'jquery';
 
